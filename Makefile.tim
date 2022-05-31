@@ -1,0 +1,33 @@
+all: \
+	iso/menu/menu.arc \
+	iso/menu/loading.tim \
+	iso/font/boldfont.tim \
+	iso/font/arial.tim \
+	iso/stage/hud0.tim \
+	iso/stage/hud1.tim \
+	iso/stage/hud0weeb.tim \
+	iso/jellybean/main.arc \
+	iso/bf/dead.arc \
+	iso/skeletons/main.arc \
+	iso/gf/main.arc \
+	iso/gf/speaker.tim \
+	iso/week2/back.arc
+
+iso/%.tim: iso/%.png
+	tools/funkintimconv/funkintimconv $@ $<
+
+iso/%.arc:
+	tools/funkinarcpak/funkinarcpak $@ $^
+
+# Menu
+iso/menu/menu.arc: iso/menu/back.tim iso/menu/ng.tim iso/menu/story.tim iso/menu/title.tim
+
+# BF
+iso/jellybean/main.arc: iso/jellybean/jb0.tim iso/jellybean/jb1.tim iso/jellybean/jb2.tim iso/jellybean/jb3.tim iso/jellybean/jb4.tim iso/jellybean/jbdead.tim iso/jellybean/alt0.tim iso/jellybean/alt1.tim
+iso/bf/dead.arc: iso/bf/dead1.tim iso/bf/dead2.tim iso/bf/retry.tim
+
+# Dad
+iso/skeletons/main.arc: iso/skeletons/idle0.tim iso/skeletons/idle1.tim iso/skeletons/idle2.tim iso/skeletons/idle3.tim iso/skeletons/left1.tim iso/skeletons/left2.tim iso/skeletons/down1.tim iso/skeletons/down2.tim iso/skeletons/up1.tim iso/skeletons/up2.tim iso/skeletons/right1.tim iso/skeletons/right2.tim iso/skeletons/alt0.tim iso/skeletons/alt1.tim iso/skeletons/alt2.tim iso/skeletons/alt3.tim iso/skeletons/alt4.tim iso/skeletons/alt5.tim
+
+# Week 2
+iso/week2/back.arc: iso/week2/back0.tim iso/week2/back1.tim iso/week2/BLACK.tim
